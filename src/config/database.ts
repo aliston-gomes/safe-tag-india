@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/safe_tag_india";
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/safe_tag_india";
 
 export const connectDatabase = async (): Promise<void> => {
   try {
@@ -8,7 +9,7 @@ export const connectDatabase = async (): Promise<void> => {
     console.log("✅ MongoDB connected successfully");
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
-    process.exit(1);
+    throw error; // Re-throw to allow promise rejection handling in server.ts
   }
 };
 
@@ -17,7 +18,6 @@ mongoose.connection.on("disconnected", () => {
   console.log("⚠️  MongoDB disconnected");
 });
 
-mongoose.connection.on("error", (error) => {
+mongoose.connection.on("error", error => {
   console.error("❌ MongoDB error:", error);
 });
-

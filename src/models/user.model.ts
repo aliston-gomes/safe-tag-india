@@ -11,6 +11,12 @@ const UserSchema = new Schema<IUser>(
       unique: true,
       trim: true,
     },
+    email: {
+      type: String,
+      required: false,
+      trim: true,
+      lowercase: true,
+    },
     role: {
       type: String,
       enum: ["guardian", "admin"],
