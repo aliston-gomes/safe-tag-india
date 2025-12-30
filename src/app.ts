@@ -13,5 +13,7 @@ dotenv.config();
 // app.use("/api");
 
 app.get("/", (req, res, next) => {
-  return res.send(`<h1>Hello World!</h1>`);
+  return res.send(
+    `<h1 style="color:#2B2A2A;">Safe Tag India-  Built with ♥️ in bengaluru!</h1>`
+  );
 });

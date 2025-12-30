@@ -1,7 +1,16 @@
 import { app } from "./app";
+import { connectDatabase } from "./config/database";
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Running Express on ${PORT}`)
-})
+// Connect to MongoDB before starting the server
+connectDatabase()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
+  })
+  .catch(error => {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  });
