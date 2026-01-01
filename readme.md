@@ -24,3 +24,14 @@ User (Parent / Guardian) ← phone unique
 ├── Profile (Child 1)
 ├── Profile (Child 2)
 └── Profile (Elderly Parent)
+
+<!--  DATABASE MODEL FLOW  -->
+
+├── User-Account
+├── Emergency Profile
+├── Emergency Contact
+├── Profiles [kids , elders , admin(user)]
+├── Emergency Profile (Emergency Contact info)
+├── Physical Card (data to be displayed on the card)
+├── Emergency Session ( to avoid repeated and un-necessary logins)
+└── Scan Logs ( to save scan data like location , time and so on)

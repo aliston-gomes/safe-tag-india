@@ -8,7 +8,7 @@ const UserSchema = new Schema<IUser>(
     phone: {
       type: String,
       required: true,
-      unique: true,
+      unique: true, // this creates a index by default in the mongodb database
       trim: true,
     },
     email: {
